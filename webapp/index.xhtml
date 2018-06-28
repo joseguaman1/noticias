@@ -8,16 +8,10 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
        xmlns:h="http://java.sun.com/jsf/html"
     xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:p="http://primefaces.org/ui">
-    <head>
-        <title>Index</title>
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    >
+    <ui:composition template="templates/app.xhtml">
         
-    </head>
-    <body>
-        
-        <h:form>
-            <p:inputText value="#{servicioAdministrador.administrador.nombre}"/>
-            <p:commandButton value="Guardar" action="#{servicioAdministrador.guardar()}"/>
-        </h:form>
-    </body>
+    </ui:composition>
 </html>
