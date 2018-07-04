@@ -8,6 +8,7 @@ package com.ec.noticias.controlador.Dao;
 import com.ec.noticias.controlador.Conexion;
 import com.ec.noticias.modelo.Administrador;
 import javax.faces.bean.ApplicationScoped;
+import javax.persistence.Query;
 
 
 /**
@@ -47,5 +48,29 @@ public class AdministradorDao extends AdaptadorDao<Administrador> {
         }
         return band;
     }
+    
+    public Administrador inicioSesion(String correo, String clave) {
+        Administrador admin = null;
+        try {
+            Query q = getConexion().getEMF()
+                    .createQuery("SELECT a FROM Administrador a WHERE a.correo = :correito AND a.clave = :clave");
+            q.setParameter("correito", correo);
+            q.setParameter("clave", clave);
+            admin = (Administrador)q.getSingleResult();
+        } catch (Exception e) {
+        }
+        return admin;
+    }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
     
 }

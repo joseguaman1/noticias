@@ -6,9 +6,9 @@
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/ejemplo?zeroDateTimeBehavior=convertToNull"/>
-            <property name="javax.persistence.jdbc.password" value="password"/>
+            <property name="javax.persistence.jdbc.password" value="darksissy"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.user" value="user"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.schema-generation.database.action" value="none"/>
             <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>

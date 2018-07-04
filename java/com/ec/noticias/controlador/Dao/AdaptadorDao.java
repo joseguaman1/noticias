@@ -95,6 +95,10 @@ public class AdaptadorDao<T> implements InterfazDao<T> {
         } 
         return obj;
     }
+
+    public Conexion getConexion() {
+        return conexion;
+    }
     
     
     

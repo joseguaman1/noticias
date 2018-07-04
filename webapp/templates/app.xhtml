@@ -25,7 +25,8 @@ and open the template in the editor.
                     <p:menubar>
                         <p:submenu label="Inicio" icon="ui-icon-document">
                             <p:menuitem value="Listado de noticias"/>
-                            <p:menuitem value="Salir"/>
+                            <p:menuitem value="Iniciar sesion" rendered="#{!servicioAutentificacion.logueado}" action="#{servicioAutentificacion.verInicioSesion}"/>
+                            <p:menuitem value="Salir" rendered="#{servicioAutentificacion.logueado}" action="#{servicioAutentificacion.cerrarSesion}"/>
                         </p:submenu>
                     </p:menubar>
                 </h:form>
