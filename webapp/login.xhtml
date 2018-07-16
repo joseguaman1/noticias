@@ -22,7 +22,7 @@ and open the template in the editor.
             <div class="container-login100">
                 <div class="wrap-login100">
                     <h:form class="login100-form validate-form">
-                        <p:growl showDetail="true"/>
+                        <p:growl showDetail="true" id="mensajes"/>
                         <p:panel id="panel">
                             <span class="login100-form-title p-b-26">
                                 Iniciar sesion
@@ -52,7 +52,7 @@ and open the template in the editor.
                             <div class="container-login100-form-btn">
                                 <div class="wrap-login100-form-btn">
                                     <div class="login100-form-bgbtn"></div>
-                                    <p:commandButton ajax="false" oncomplete="manejarLogin(xhr, status, args)" update="panel" validateClient="true" class="login100-form-btn" value="Entrar" actionListener="#{servicioAutentificacion.inicioSesion}"/>                                    
+                                    <p:commandButton oncomplete="manejarLogin(xhr, status, args)" update="panel, mensajes" validateClient="true" class="login100-form-btn" value="Entrar" actionListener="#{servicioAutentificacion.inicioSesion}"/>                                    
                                 </div>
                             </div>
                             <!--

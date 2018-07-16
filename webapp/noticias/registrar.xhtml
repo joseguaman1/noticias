@@ -3,14 +3,56 @@
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+--><!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    >
+    <!-- fragmento de pagina-->
+    <ui:composition>
+        <p:dialog id="noticiaCreateDlg" modal="true" widgetVar="noticiaCreateDlg" closable="false" header="Crear Noticia" appendTo="@(body)"> 
+            <h:form id="noticiaCreateForm">
+                <h:panelGrid columns="3" rendered="#{servicioNoticia.noticia != null}" style="border-collapse: separate; border-spacing: 10px;">
+                    <p:outputLabel value="Titulo" for="txttitulo"/>
+                    <p:inputText id="txttitulo" required="true" value="#{servicioNoticia.noticia.titulo}">
+                        <f:validateLength minimum="3" maximum="240"/>
+                    </p:inputText>
+                    <p:message for="txttitulo" display="icon" id="msgtitulo"/>                    
+                    
+                    <p:outputLabel value="Descripcion" for="txtdescrip"/>
+                    <p:textEditor id="txtdescrip" required="true" height="50" value="#{servicioNoticia.noticia.cuerpo}"/>
+                    <p:message for="txtdescrip" display="icon" id="msgdescrip"/>
+                    
+                    <p:outputLabel value="Tipo de  Noticia" for="txttipo"/>
+                    <p:selectOneMenu id="txttipo" value="#{servicioNoticia.noticia.tipoNoticia}">
+                        <f:selectItems value="#{servicioNoticia.listaTipo}"
+                                       var="item"
+                                       itemValue="#{item}"/>
+                    </p:selectOneMenu>
+                    <p:message for="txttipo" display="icon" id="msgtipo"/>                    
+                </h:panelGrid>
+                <h:panelGrid columns="2" style="border-collapse: separate; border-spacing: 10px">
+                    <p:commandButton value="Cancelar" onclick="noticiaCreateDlg.hide()" 
+                                     actionListener="#{servicioNoticia.fijarInstancia(null)}" 
+                                     immediate="true" 
+                                     icon="ui-icon-closethick"
+                                     class="red-button"/>
+                    <p:commandButton value="Guardar" actionListener="#{servicioNoticia.guardar}" 
+                                     oncomplete="handleSubmit(args, 'noticiaCreateDlg');"
+                                     icon="fa fa-save"
+                                     update=":noticiaListado:tabla, :growl"/>
+                </h:panelGrid>
+            </h:form>
+        </p:dialog>
+    </ui:composition>
 </html>
+
+
+
+
+
+
+
+

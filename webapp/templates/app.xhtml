@@ -18,13 +18,14 @@ and open the template in the editor.
         
     </h:head>
     <h:body>
+        <p:growl id="growl" life="3000" />
         <p:layout fullPage="true" >
             <p:layoutUnit id="top" position="north" size="150">
 
                 <h:form>
                     <p:menubar>
                         <p:submenu label="Inicio" icon="ui-icon-document">
-                            <p:menuitem value="Listado de noticias"/>
+                            <p:menuitem value="Listado de noticias" rendered="#{servicioAutentificacion.logueado}" url="faces/noticias/listado.xhtml"/>
                             <p:menuitem value="Iniciar sesion" rendered="#{!servicioAutentificacion.logueado}" action="#{servicioAutentificacion.verInicioSesion}"/>
                             <p:menuitem value="Salir" rendered="#{servicioAutentificacion.logueado}" action="#{servicioAutentificacion.cerrarSesion}"/>
                         </p:submenu>

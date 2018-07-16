@@ -62,9 +62,11 @@ public class ServicioAutentificacion implements Serializable {
         }
         System.out.println("extenal " + UUID.randomUUID());
         FacesContext.getCurrentInstance().addMessage(null, msg);
+        //context.addCallbackParam("estalogueado", (administrador != null));
         PrimeFaces.current().ajax().addCallbackParam("estalogueado", (administrador != null));
         if(administrador != null) {
            PrimeFaces.current().ajax().addCallbackParam("view", "http://localhost:8080/noticias");
+           //context.addCallbackParam("view", "http://localhost:8080/noticias/faces/administracion.xhtml");
         } 
     }
 

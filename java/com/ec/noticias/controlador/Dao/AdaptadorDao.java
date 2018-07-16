@@ -59,9 +59,9 @@ public class AdaptadorDao<T> implements InterfazDao<T> {
             lista = query.getResultList();
         } catch (Exception e) {
             System.out.println("Error en listar datos");
-            manager.close();
+            //manager.close();
         } finally {
-            manager.close();
+           // manager.close();
         }
         return lista;
     }
